@@ -7,7 +7,7 @@
 
 ## Phase 2: Warehouse & Card Generation
 - [x] 實作初始化 21 張黑白素描卡片邏輯 (Pencil Sketch Style)
-- [ ] 每日獎勵 (Daily Reward) 倒數計時元件
+- [x] 每日獎勵 (Daily Reward) 邏輯實作 (領取與倒數)
 - [ ] 倉庫卡片展示介面 (Grid View)
 
 ## Phase 3: Theater & Editing
