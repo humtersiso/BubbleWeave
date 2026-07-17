@@ -34,6 +34,8 @@ function App() {
   const handleCardClick = (card) => {
     if (!selectedCards.find(c => c.id === card.id)) {
       setSelectedCards([...selectedCards, card]);
+      // 自動切換到劇場模式方便編輯
+      setView('theater');
     }
   };
 
@@ -61,7 +63,8 @@ function App() {
 
           {view === 'theater' && (
             <section>
-              <PlayTheater selectedCards={selectedCards} />
+              <h2 className="text-2xl font-bold mb-4 italic">Story Workshop</h2>
+              <PlayTheater key={selectedCards.length} selectedCards={selectedCards} />
             </section>
           )}
 
