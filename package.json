@@ -1,6 +1,9 @@
 {
   "type": "module",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "node src/test/smoke.test.js"
   },
   "dependencies": {
