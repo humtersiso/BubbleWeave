@@ -1,5 +1,53 @@
 import React, { useState } from 'react';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  horizontalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { generateDialogues } from '../lib/gemini';
+
+const SortableCard = ({ card, index, dialogue }) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({ id: card.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="flex-shrink-0 w-40 cursor-grab active:cursor-grabbing">
+      <div className="relative border-2 border-black rounded-md overflow-hidden bg-gray-100">
+        <img src={card.imageUrl} alt={card.scene} className="w-full h-48 object-cover grayscale" />
+        <div className="absolute top-0 left-0 bg-black text-white text-xs px-2 py-1">
+          #{index + 1}
+        </div>
+      </div>
+      <p className="text-[10px] text-gray-500 mt-1 truncate">{card.scene}</p>
+      {dialogue && (
+        <div className="mt-2 p-2 bg-yellow-50 border-l-2 border-yellow-400 text-sm italic">
+          "{dialogue}"
+        </div>
+      )}
+    </div>
+  );
+};
 
 /**
  * 故事編輯器組件 (The Play Theater)
@@ -10,6 +58,27 @@ const PlayTheater = ({ selectedCards }) => {
   const [orderedCards, setOrderedCards] = useState(selectedCards);
   const [dialogues, setDialogues] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      setOrderedCards((items) => {
+        const oldIndex = items.findIndex((i) => i.id === active.id);
+        const newIndex = items.findIndex((i) => i.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+      // 排序變動後清除舊對白，因為順序已變
+      setDialogues([]);
+    }
+  };
 
   const handleGenerateStory = async () => {
     if (orderedCards.length === 0) return;
@@ -30,24 +99,27 @@ const PlayTheater = ({ selectedCards }) => {
         <span>🎬</span> The Play Theater
       </h2>
       
-      <div className="flex gap-4 overflow-x-auto pb-4 mb-6 min-h-[200px]">
-        {orderedCards.map((card, index) => (
-          <div key={`${card.id}-${index}`} className="flex-shrink-0 w-40">
-            <div className="relative border-2 border-black rounded-md overflow-hidden bg-gray-100">
-              <img src={card.imageUrl} alt={card.scene} className="w-full h-48 object-cover grayscale" />
-              <div className="absolute top-0 left-0 bg-black text-white text-xs px-2 py-1">
-                #{index + 1}
-              </div>
-            </div>
-            <p className="text-[10px] text-gray-500 mt-1 truncate">{card.scene}</p>
-            {dialogues[index] && (
-              <div className="mt-2 p-2 bg-yellow-50 border-l-2 border-yellow-400 text-sm italic">
-                "{dialogues[index]}"
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+      <DndContext 
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <div className="flex gap-4 overflow-x-auto pb-4 mb-6 min-h-[200px]">
+          <SortableContext 
+            items={orderedCards.map(c => c.id)}
+            strategy={horizontalListSortingStrategy}
+          >
+            {orderedCards.map((card, index) => (
+              <SortableCard 
+                key={card.id} 
+                card={card} 
+                index={index} 
+                dialogue={dialogues[index]} 
+              />
+            ))}
+          </SortableContext>
+        </div>
+      </DndContext>
 
       <div className="flex justify-between items-center mt-4">
         <p className="text-sm text-gray-500">

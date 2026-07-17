@@ -13,7 +13,7 @@
 ## Phase 3: Theater & Editing
 - [x] 故事編輯器 (The Play Theater) 基礎架構
 - [x] AI 文字對白生成系統整合
-- [ ] 卡片拖放排序實作 (Drag & Drop)
+- [x] 卡片拖放排序實作 (Drag & Drop)
 - [ ] 故事預覽與發布功能
 
 ## Phase 4: Social & Community
