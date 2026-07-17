@@ -11,8 +11,9 @@
 - [x] 倉庫卡片展示介面 (Grid View)
 
 ## Phase 3: Theater & Editing
-- [ ] 故事編輯器 (The Play Theater) - 卡片拖放排序
-- [ ] 文字對白系統 (手動/AI 生成)
+- [x] 故事編輯器 (The Play Theater) 基礎架構
+- [x] AI 文字對白生成系統整合
+- [ ] 卡片拖放排序實作 (Drag & Drop)
 - [ ] 故事預覽與發布功能
 
 ## Phase 4: Social & Community
