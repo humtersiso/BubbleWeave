@@ -1,5 +1,5 @@
 // 暫存 Gemini API 金鑰與配置
-export const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
+export const GEMINI_API_KEY = (typeof import.meta.env !== 'undefined' ? import.meta.env.VITE_GEMINI_API_KEY : process.env.VITE_GEMINI_API_KEY) || "";
 export const IMAGE_MODEL = "gemini-3.1-flash-lite-image";
 export const TEXT_MODEL = "gemini-3.1-flash-lite";
 
