@@ -21,3 +21,8 @@
 - [x] 最新發布 (Newest Feed) UI
 - [x] Remix (⚡) 邏輯實作
 - [x] Like (❤️) 互動實作
+
+## Phase 5: Final Polish
+- [x] 完善微互動動畫 (Scale/Active effects)
+- [x] 滾動條樣式優化 (Scrollbar Hide)
+- [x] 實作進度最終確認

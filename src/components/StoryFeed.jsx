@@ -19,7 +19,7 @@ const StoryFeed = ({ stories = [], onLike, onRemix }) => {
           </div>
 
           {/* Story Panels */}
-          <div className="flex overflow-x-auto p-4 gap-4 bg-gray-50">
+          <div className="flex overflow-x-auto p-4 gap-4 bg-gray-50 scrollbar-hide">
             {story.cards.map((card, idx) => (
               <div key={`${story.id}-card-${idx}`} className="flex-shrink-0 w-48">
                 <div className="border-2 border-black rounded-lg overflow-hidden bg-white">
@@ -40,7 +40,7 @@ const StoryFeed = ({ stories = [], onLike, onRemix }) => {
             <div className="flex gap-4">
               <button 
                 onClick={() => onLike && onLike(story.id)}
-                className="flex items-center gap-1 hover:scale-110 transition-transform"
+                className="flex items-center gap-1 hover:scale-110 active:scale-95 transition-transform"
               >
                 <span className="text-xl">❤️</span>
                 <span className="font-bold">{story.likes || 0}</span>
