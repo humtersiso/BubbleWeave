@@ -93,6 +93,17 @@ const PlayTheater = ({ selectedCards }) => {
     }
   };
 
+  const handlePublish = () => {
+    const storyData = {
+      cards: orderedCards,
+      dialogues,
+      author: "Me",
+      createdAt: new Date().toISOString(),
+    };
+    console.log("Publishing story:", storyData);
+    alert("Story Published Successfully!");
+  };
+
   return (
     <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-200">
       <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -125,13 +136,22 @@ const PlayTheater = ({ selectedCards }) => {
         <p className="text-sm text-gray-500">
           {orderedCards.length} scenes selected.
         </p>
-        <button
-          onClick={handleGenerateStory}
-          disabled={isGenerating || orderedCards.length === 0}
-          className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 disabled:bg-gray-300 transition-colors"
-        >
-          {isGenerating ? "AI Writing..." : "Generate AI Dialogues"}
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={handleGenerateStory}
+            disabled={isGenerating || orderedCards.length === 0}
+            className="px-6 py-2 bg-white border-2 border-black text-black rounded-full hover:bg-gray-50 disabled:bg-gray-100 disabled:border-gray-300 disabled:text-gray-400 transition-colors"
+          >
+            {isGenerating ? "AI Writing..." : "Generate AI Dialogues"}
+          </button>
+          <button
+            onClick={handlePublish}
+            disabled={isGenerating || orderedCards.length === 0 || dialogues.length === 0}
+            className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 disabled:bg-gray-300 transition-colors flex items-center gap-2"
+          >
+            <span>🚀</span> Publish Story
+          </button>
+        </div>
       </div>
     </div>
   );
