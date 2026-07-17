@@ -6,13 +6,13 @@ import { generateCardImage } from './gemini.js';
  */
 export const initializeWarehouse = async () => {
   const scenes = [
-    "Office argument", "Crowded concert", "Quiet library", 
-    "Street dance battle", "Awkward elevator moment", "Busy subway station",
-    "Café breakup", "Winning a marathon", "Surprise birthday party",
-    "Job interview nerves", "Cooking disaster", "Walking in the rain",
-    "High-stakes poker game", "Art gallery opening", "Laundromat waiting",
-    "Airport farewell", "Mountain top view", "Fashion runway walk",
-    "Street food stall", "Classroom exam stress", "Midnight rooftop talk"
+    "Office argument over a stapler", "Clumsy waiter at a crowded concert", "Sneezing loudly in a quiet library", 
+    "Street dance battle with a mascot", "Awkward elevator eye contact", "Chasing a closing subway train",
+    "Spilling coffee during a café breakup", "Accidentally winning a marathon", "Hidden in a surprise party cake",
+    "Job interview nerves with a squeaky chair", "Kitchen fire cooking disaster", "Umbrella flipping inside out in the rain",
+    "Bluffing in a high-stakes poker game", "Mistaking a fire extinguisher for art", "Matching socks at a laundromat",
+    "Airport farewell with the wrong person", "Selfie at a windy mountain top", "Tripping on a fashion runway",
+    "Eating spicy food at a street stall", "Falling asleep during an exam", "Midnight rooftop telescope talk"
   ];
 
   console.log("正在初始化倉庫，生成 21 張黑白素描卡牌...");

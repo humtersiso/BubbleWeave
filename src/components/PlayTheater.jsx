@@ -53,8 +53,9 @@ const SortableCard = ({ card, index, dialogue }) => {
  * 故事編輯器組件 (The Play Theater)
  * @param {Object} props
  * @param {Array} props.selectedCards - 被選中準備編排故事的卡牌
+ * @param {Function} props.onPublish - 發布故事的回調函數
  */
-const PlayTheater = ({ selectedCards }) => {
+const PlayTheater = ({ selectedCards, onPublish }) => {
   const [orderedCards, setOrderedCards] = useState(selectedCards);
   const [dialogues, setDialogues] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -100,8 +101,12 @@ const PlayTheater = ({ selectedCards }) => {
       author: "Me",
       createdAt: new Date().toISOString(),
     };
-    console.log("Publishing story:", storyData);
-    alert("Story Published Successfully!");
+    if (onPublish) {
+      onPublish(storyData);
+    } else {
+      console.log("Publishing story:", storyData);
+      alert("Story Published Successfully!");
+    }
   };
 
   return (

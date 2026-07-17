@@ -23,6 +23,17 @@ function App() {
     }
   ]);
 
+  const handlePublishStory = (storyData) => {
+    const newStory = {
+      ...storyData,
+      id: `story-${Date.now()}`,
+      likes: 0
+    };
+    setStories([newStory, ...stories]);
+    setSelectedCards([]);
+    setView('feed');
+  };
+
   useEffect(() => {
     const loadCards = async () => {
       const initialCards = await initializeWarehouse();
@@ -64,7 +75,11 @@ function App() {
           {view === 'theater' && (
             <section>
               <h2 className="text-2xl font-bold mb-4 italic">Story Workshop</h2>
-              <PlayTheater key={selectedCards.length} selectedCards={selectedCards} />
+              <PlayTheater 
+                key={selectedCards.length} 
+                selectedCards={selectedCards} 
+                onPublish={handlePublishStory}
+              />
             </section>
           )}
 
