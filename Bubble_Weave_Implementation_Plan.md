@@ -18,6 +18,6 @@
 
 ## Phase 4: Social & Community
 - [x] 熱門排行榜 (Leaderboard) UI
-- [ ] 最新發布 (Newest Feed) UI
-- [ ] Remix (⚡) 邏輯實作
-- [ ] Like (❤️) 互動實作
+- [x] 最新發布 (Newest Feed) UI
+- [x] Remix (⚡) 邏輯實作
+- [x] Like (❤️) 互動實作
