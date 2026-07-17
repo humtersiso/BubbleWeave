@@ -1,4 +1,4 @@
-import { generateCardImage } from './gemini';
+import { generateCardImage } from './gemini.js';
 
 /**
  * 初始化倉庫，生成 21 張測試卡牌

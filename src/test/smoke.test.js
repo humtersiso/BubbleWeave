@@ -1,5 +1,5 @@
-import { initializeWarehouse, claimDailyReward, getRewardCountdown } from '../lib/warehouse';
-import { generateDialogues } from '../lib/gemini';
+import { initializeWarehouse, claimDailyReward, getRewardCountdown } from '../lib/warehouse.js';
+import { generateDialogues } from '../lib/gemini.js';
 
 /**
  * 簡單的自動化測試腳本，用於驗證核心邏輯
