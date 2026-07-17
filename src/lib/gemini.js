@@ -14,21 +14,22 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
  */
 export const generateCardImage = async (customPrompt) => {
   const model = genAI.getGenerativeModel({ model: IMAGE_MODEL });
-  const basePrompt = "Pencil sketch style, black and white, high contrast, dramatic facial expressions, human characters only, scene: ";
+  const basePrompt = "Hand-drawn pencil sketch, black and white, high contrast, sharp lines, dramatic facial expressions, comic book panel style, human characters only, scene: ";
   const result = await model.generateContent([basePrompt + customPrompt]);
   const response = await result.response;
-  return response.text(); // 根據實際 API 回傳結構調整
+  // 注意：Gemini Image API 目前回傳結構通常包含 inlineData 或 URL，此處保持靈活
+  return response.text(); 
 };
 
 /**
- * 根據卡牌順序生成對白
- * @param {Array} cards - 卡牌資料陣列
+ * 根據卡牌順序與其內容生成對白
+ * @param {Array} cards - 卡牌資料陣列 (含 ID 與場景描述)
  * @returns {Promise<string[]>} - 返回對白陣列
  */
 export const generateDialogues = async (cards) => {
   const model = genAI.getGenerativeModel({ model: TEXT_MODEL });
-  const prompt = `基於以下卡牌內容順序，生成幽默有趣的對白：${JSON.stringify(cards)}`;
+  const prompt = `You are a scriptwriter for a silent comedy. Based on the following sequence of scenes: ${JSON.stringify(cards.map(c => c.scene))}, provide a short, humorous dialogue line or thought bubble text for each scene. Return only the lines, separated by newlines.`;
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  return response.text().split('\n'); 
+  return response.text().split('\n').filter(line => line.trim() !== ""); 
 };

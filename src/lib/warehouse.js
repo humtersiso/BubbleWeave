@@ -24,6 +24,7 @@ export const initializeWarehouse = async () => {
   return cards.map((imageData, index) => ({
     id: `card-${index}`,
     imageUrl: imageData,
+    scene: scenes[index],
     timestamp: new Date().toISOString(),
     style: "Pencil Sketch"
   }));
@@ -47,6 +48,7 @@ export const claimDailyReward = async () => {
   return newCards.map((imageData, index) => ({
     id: `reward-${Date.now()}-${index}`,
     imageUrl: imageData,
+    scene: selectedScenes[index],
     timestamp: new Date().toISOString(),
     style: "Pencil Sketch"
   }));
