@@ -1,4 +1,8 @@
 {
+  "type": "module",
+  "scripts": {
+    "test": "node src/test/smoke.test.js"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.1"
   }

@@ -56,4 +56,5 @@ const runTests = async () => {
   console.log("🏁 測試執行完畢");
 };
 
+runTests();
 export default runTests;
