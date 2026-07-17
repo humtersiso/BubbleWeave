@@ -17,7 +17,7 @@
 - [x] 故事預覽與發布功能
 
 ## Phase 4: Social & Community
-- [ ] 熱門排行榜 (Leaderboard) UI
+- [x] 熱門排行榜 (Leaderboard) UI
 - [ ] 最新發布 (Newest Feed) UI
 - [ ] Remix (⚡) 邏輯實作
 - [ ] Like (❤️) 互動實作
