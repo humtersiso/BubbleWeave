@@ -1,8 +1,8 @@
 # BubbleWeave 實作進度表
 
 ## Phase 1: Project Initialization
-- [ ] 專案基礎目錄結構 (Frontend/Backend)
-- [ ] Gemini API (Google Generative AI) 串接工具類
+- [x] 專案基礎目錄結構 (Frontend/Backend)
+- [x] Gemini API (Google Generative AI) 串接工具類
 - [ ] 靜態資源與全域樣式配置 (Tailwind CSS/Modern UI)
 
 ## Phase 2: Warehouse & Card Generation
