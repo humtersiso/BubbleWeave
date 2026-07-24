@@ -1,8 +1,14 @@
 /**
  * IndexedDB persistence — localStorage cannot hold 21 base64 card images.
+ *
+ * v2 使用獨立 DB 名，與 v1（bubbleweave）並存，避免大改洗掉穩定版資料。
+ * 見 docs/VERSIONING.md
  */
+import { APP_CHANNEL } from './appVersion.js';
 
-const DB_NAME = 'bubbleweave';
+/** v1 = bubbleweave；v2-dev = bubbleweave.v2 */
+export const DB_NAME =
+  APP_CHANNEL === 'v2-dev' ? 'bubbleweave.v2' : 'bubbleweave';
 const DB_VERSION = 1;
 const STORE = 'state';
 const STATE_KEY = 'app';
