@@ -1,0 +1,340 @@
+{
+  "theme": "台灣旅遊",
+  "generated_at": "2026-07-22T03:56:04.469Z",
+  "card_count": 21,
+  "requested_count": 21,
+  "model": "gemini-3.1-flash-lite",
+  "pipeline_stage": "prompts_only",
+  "diversity": {
+    "ok": true,
+    "issues": [],
+    "quotas": {
+      "cardCount": 21,
+      "distinctSlotsMin": 9,
+      "streetMin": 3,
+      "landmarkMin": 3,
+      "transitPublicMin": 3,
+      "transitPersonalMin": 3,
+      "fashionMin": 2,
+      "cultureMin": 2,
+      "entertainmentMin": 2,
+      "diningMax": 1,
+      "accommodationMax": 1,
+      "natureMax": 1,
+      "partySolo": 12,
+      "partyDuo": 6,
+      "partyTrio": 2,
+      "partyQuad": 1,
+      "maxSameAction": 1,
+      "maxSameScene": 1
+    },
+    "stats": {
+      "card_count": 21,
+      "distinct_slots": 10,
+      "distinct_actions": 21,
+      "distinct_scenes": 21,
+      "slot_counts": {
+        "STREET_FOOD": 3,
+        "LANDMARK_SPOT": 3,
+        "TRANSIT_PUBLIC": 3,
+        "TRANSIT_PERSONAL": 3,
+        "FASHION_LOCAL": 2,
+        "CULTURE_RULES": 2,
+        "ENTERTAINMENT": 2,
+        "DINING_SOCIAL": 1,
+        "ACCOMMODATION": 1,
+        "NATURE_OUTDOORS": 1
+      },
+      "party_counts": {
+        "1": 15,
+        "2": 4,
+        "3": 1,
+        "4": 1
+      }
+    }
+  },
+  "cards": [
+    {
+      "i": 1,
+      "universal_slot_id": "STREET_FOOD",
+      "scene_zh": "士林夜市臭豆腐攤",
+      "action_zh": "捏鼻忍受氣味並用筷子夾起豆腐",
+      "emotion_zh": "痛苦",
+      "party_size": 1,
+      "character_ids": [
+        "cindy"
+      ],
+      "character_id": "cindy",
+      "image_prompt": "At a crowded Shilin Night Market tofu stall, a slim Japanese woman (Cindy: black blazer, collared blouse, pencil skirt, bare face, no glasses) holds her nose with one hand and tries to lift a block of fried stinky tofu with chopsticks, eyes squinted in intense disgust. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 2,
+      "universal_slot_id": "STREET_FOOD",
+      "scene_zh": "寧夏夜市蚵仔煎攤",
+      "action_zh": "被勾芡太重的蚵仔煎拉絲困住",
+      "emotion_zh": "困惑",
+      "party_size": 1,
+      "character_ids": [
+        "elise"
+      ],
+      "character_id": "elise",
+      "image_prompt": "At a Ningxia Night Market stall, an East Asian woman (Elise: oversized white baggy tee, rubber flip-flops, thick ROUND glasses) struggles as a massive, gooey string of starch from an oyster omelet stretches into the air, tangling around her hair. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 3,
+      "universal_slot_id": "STREET_FOOD",
+      "scene_zh": "台南安平棺材板店",
+      "action_zh": "好奇地戳弄像棺材的炸吐司邊緣",
+      "emotion_zh": "好奇",
+      "party_size": 1,
+      "character_ids": [
+        "david"
+      ],
+      "character_id": "david",
+      "image_prompt": "At a Tainan snack shop, an older man (David: plaid long-sleeve shirt, dress slacks, short white hair, thick BLACK SQUARE glasses) leans over a deep-fried bread box, poking the crispy edge with a fork with a puzzled expression. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 4,
+      "universal_slot_id": "LANDMARK_SPOT",
+      "scene_zh": "台北101觀景台",
+      "action_zh": "試圖貼著玻璃拍攝卻被反光困擾",
+      "emotion_zh": "懊惱",
+      "party_size": 1,
+      "character_ids": [
+        "cindy"
+      ],
+      "character_id": "cindy",
+      "image_prompt": "Inside the Taipei 101 observatory, a slim Japanese woman (Cindy: black OL suit, sharp features, NO glasses) presses her face against the glass, eyes frustrated as her own reflection blocks the view of the city lights outside. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 5,
+      "universal_slot_id": "LANDMARK_SPOT",
+      "scene_zh": "九份老街階梯",
+      "action_zh": "爬坡氣喘吁吁坐在階梯上",
+      "emotion_zh": "疲憊",
+      "party_size": 2,
+      "character_ids": [
+        "bob",
+        "david"
+      ],
+      "character_id": "bob",
+      "image_prompt": "On a steep stairway in Jiufen, on the LEFT: a Black man (Bob: black skull tee, jeans, dark boots, no glasses) slumped over, gasping for air; on the RIGHT: an older man (David: plaid shirt, dress slacks, white hair, SQUARE glasses) sitting next to him, wiping sweat from his forehead. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 6,
+      "universal_slot_id": "LANDMARK_SPOT",
+      "scene_zh": "中正紀念堂廣場",
+      "action_zh": "在巨型柱子旁縮小得像個螞蟻",
+      "emotion_zh": "渺小",
+      "party_size": 1,
+      "character_ids": [
+        "elise"
+      ],
+      "character_id": "elise",
+      "image_prompt": "At the base of a massive pillar at Chiang Kai-shek Memorial Hall, a small woman (Elise: baggy tee, ROUND glasses) looks tiny, dwarfed by the grand architectural scale of the landmark. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 7,
+      "universal_slot_id": "TRANSIT_PUBLIC",
+      "scene_zh": "台北捷運手扶梯",
+      "action_zh": "因靠左站立被後方人潮推擠",
+      "emotion_zh": "慌張",
+      "party_size": 3,
+      "character_ids": [
+        "cindy",
+        "bob",
+        "david"
+      ],
+      "character_id": "cindy",
+      "image_prompt": "On a Taipei MRT escalator, CENTER: a slim woman (Cindy) standing firmly on the left; LEFT: a large man (Bob) looking annoyed; RIGHT: an older man (David) trying to squeeze past, all captured in a chaotic crowded escalator moment. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 8,
+      "universal_slot_id": "TRANSIT_PUBLIC",
+      "scene_zh": "高鐵車廂內",
+      "action_zh": "因行李箱滑走而追趕",
+      "emotion_zh": "急迫",
+      "party_size": 1,
+      "character_ids": [
+        "david"
+      ],
+      "character_id": "david",
+      "image_prompt": "Inside a high-speed rail carriage, an older man (David: plaid shirt, dress slacks, white hair, SQUARE glasses) lunges forward in a half-run, arms outstretched to catch a runaway rolling suitcase in the aisle. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 9,
+      "universal_slot_id": "TRANSIT_PUBLIC",
+      "scene_zh": "台北市公車站牌",
+      "action_zh": "為了看清跑馬燈看板而踮起腳尖",
+      "emotion_zh": "專注",
+      "party_size": 1,
+      "character_ids": [
+        "elise"
+      ],
+      "character_id": "elise",
+      "image_prompt": "At a Taipei bus stop, a homebody woman (Elise: oversized white tee, ROUND glasses) standing on tiptoes, neck stretched long to squint at the high-mounted electronic bus sign, hair disheveled. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 10,
+      "universal_slot_id": "TRANSIT_PERSONAL",
+      "scene_zh": "YouBike 租借站",
+      "action_zh": "因找不到掃碼器而對著車籃大喊",
+      "emotion_zh": "憤怒",
+      "party_size": 1,
+      "character_ids": [
+        "bob"
+      ],
+      "character_id": "bob",
+      "image_prompt": "At a YouBike station, a muscular man (Bob: skull tee, black skin, no glasses) is shouting at the bike basket, arms flailing in frustration because the QR code scanner is unresponsive. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 11,
+      "universal_slot_id": "TRANSIT_PERSONAL",
+      "scene_zh": "機車停車格",
+      "action_zh": "被夾在兩台重機中間動彈不得",
+      "emotion_zh": "窘迫",
+      "party_size": 1,
+      "character_ids": [
+        "cindy"
+      ],
+      "character_id": "cindy",
+      "image_prompt": "In a crowded motorcycle parking zone, a slim woman (Cindy: black suit, pencil skirt, no glasses) is squeezed tightly between two bulky motorcycles, arms pinned to her sides, eyes wide. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 12,
+      "universal_slot_id": "TRANSIT_PERSONAL",
+      "scene_zh": "河濱公園自行車道",
+      "action_zh": "騎腳踏車龍頭失控向左偏",
+      "emotion_zh": "恐懼",
+      "party_size": 1,
+      "character_ids": [
+        "david"
+      ],
+      "character_id": "david",
+      "image_prompt": "On a riverside cycling path, an older man (David: plaid shirt, dress slacks, SQUARE glasses) wobbles dangerously as the bicycle handlebar jerks to the left, mouth agape in terror. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 13,
+      "universal_slot_id": "FASHION_LOCAL",
+      "scene_zh": "台北街頭暴雨中",
+      "action_zh": "雨傘被強風吹到翻過去",
+      "emotion_zh": "絕望",
+      "party_size": 1,
+      "character_ids": [
+        "elise"
+      ],
+      "character_id": "elise",
+      "image_prompt": "Under heavy rain on a city street, a woman (Elise: oversized white tee, ROUND glasses) stands with a pathetic, inside-out umbrella frame, hair soaked and sticking to her face. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 14,
+      "universal_slot_id": "FASHION_LOCAL",
+      "scene_zh": "廟宇門口",
+      "action_zh": "因為穿著藍白拖在積水中滑倒",
+      "emotion_zh": "狼狽",
+      "party_size": 1,
+      "character_ids": [
+        "bob"
+      ],
+      "character_id": "bob",
+      "image_prompt": "Near a temple, a large man (Bob: skull tee, black skin, no glasses) lies flat on his back in a puddle, his blue-white rubber slippers scattered across the foreground. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 15,
+      "universal_slot_id": "CULTURE_RULES",
+      "scene_zh": "龍山寺擲筊",
+      "action_zh": "連擲三次都是反面感到不可置信",
+      "emotion_zh": "懷疑",
+      "party_size": 1,
+      "character_ids": [
+        "david"
+      ],
+      "character_id": "david",
+      "image_prompt": "Inside Longshan Temple, an older man (David: plaid shirt, SQUARE glasses) staring at the two wooden crescent blocks on the floor, holding his head in disbelief after a bad result. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 16,
+      "universal_slot_id": "CULTURE_RULES",
+      "scene_zh": "彩券行門口",
+      "action_zh": "刮開樂透發現沒中獎直接崩潰",
+      "emotion_zh": "崩潰",
+      "party_size": 1,
+      "character_ids": [
+        "elise"
+      ],
+      "character_id": "elise",
+      "image_prompt": "Outside a lottery shop, a woman (Elise: baggy white tee, ROUND glasses) drops to her knees, clutching a scratched-off losing ticket, eyes closed in dramatic despair. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 17,
+      "universal_slot_id": "ENTERTAINMENT",
+      "scene_zh": "娃娃機店",
+      "action_zh": "眼睜睜看著夾子在半空中滑落",
+      "emotion_zh": "遺憾",
+      "party_size": 2,
+      "character_ids": [
+        "cindy",
+        "bob"
+      ],
+      "character_id": "cindy",
+      "image_prompt": "Inside a claw machine shop, on the LEFT: Cindy (black suit, NO glasses) pointing at the machine; on the RIGHT: Bob (skull tee, black skin, no glasses) watching the claw release the prize mid-air. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 18,
+      "universal_slot_id": "ENTERTAINMENT",
+      "scene_zh": "錢櫃KTV包廂",
+      "action_zh": "高歌到破音讓全場靜止",
+      "emotion_zh": "尷尬",
+      "party_size": 4,
+      "character_ids": [
+        "cindy",
+        "bob",
+        "david",
+        "elise"
+      ],
+      "character_id": "cindy",
+      "image_prompt": "Inside a KTV room, CENTER: Bob (black skin, skull tee) holding the mic mid-shout; LEFT: Cindy (suit) covering her ears; RIGHT: David (plaid shirt, SQUARE glasses) and Elise (white tee, ROUND glasses) looking bewildered. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 19,
+      "universal_slot_id": "DINING_SOCIAL",
+      "scene_zh": "熱炒店圓桌",
+      "action_zh": "因為轉盤轉太快筷子夾空",
+      "emotion_zh": "無奈",
+      "party_size": 2,
+      "character_ids": [
+        "david",
+        "cindy"
+      ],
+      "character_id": "david",
+      "image_prompt": "At a busy stir-fry restaurant, on the LEFT: David (plaid shirt, SQUARE glasses) reaching for food; on the RIGHT: Cindy (suit) spinning the lazy susan too fast, leaving David’s chopsticks grasping empty air. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 20,
+      "universal_slot_id": "ACCOMMODATION",
+      "scene_zh": "汽車旅館房內",
+      "action_zh": "被房間過度裝飾的燈光閃到眼花",
+      "emotion_zh": "暈眩",
+      "party_size": 1,
+      "character_ids": [
+        "elise"
+      ],
+      "character_id": "elise",
+      "image_prompt": "Inside a flashy motel room, an East Asian woman (Elise: white tee, ROUND glasses) standing in the center, shielding her eyes from the chaotic, blinking neon lights of the bedroom. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    },
+    {
+      "i": 21,
+      "universal_slot_id": "NATURE_OUTDOORS",
+      "scene_zh": "陽明山步道",
+      "action_zh": "為了追蝴蝶被雜草絆倒",
+      "emotion_zh": "驚嚇",
+      "party_size": 2,
+      "character_ids": [
+        "bob",
+        "cindy"
+      ],
+      "character_id": "bob",
+      "image_prompt": "On a Yangmingshan trail, on the LEFT: Bob (skull tee, black skin) stumbling into a bush; on the RIGHT: Cindy (suit, NO glasses) watching him fall while pointing at a butterfly. Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot."
+    }
+  ]
+}

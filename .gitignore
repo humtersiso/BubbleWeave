@@ -1,1 +1,23 @@
-.aider*
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+
+# 產物／暫存（保留季包主檔供 clone 可跑）
+data/generated/*
+!data/generated/.gitkeep
+!data/generated/season-taiwan-diverse.json
+data/generated/.face-tmp/
+data/generated/.pw-*/
+
+models/*.pt
+models/*.onnx
+public/models/*.onnx
+public/models/*.pt

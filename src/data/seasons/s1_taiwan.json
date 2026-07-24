@@ -1,0 +1,32 @@
+{
+  "id": "s1_taiwan",
+  "number": 1,
+  "title": "台灣篇",
+  "titleEn": "Taiwan Everyday",
+  "blurb": "夜市、廟口、捷運、雷陣雨與悶熱——簽名裝闖蕩台灣日常。",
+  "culturalVibes": "台灣日常、排隊、悶熱、雷陣雨、珍奶、機車、廟口、捷運",
+  "sceneSlotMap": {
+    "night_market": "STREET_FOOD",
+    "breakfast_shop": "STREET_FOOD",
+    "bubble_tea_shop": "STREET_FOOD",
+    "temple_fair": "DINING_SOCIAL",
+    "rainy_arcade": "FASHION_LOCAL",
+    "humid_rooftop": "ACCOMMODATION",
+    "mrt_platform": "TRANSIT_PUBLIC",
+    "mrt_car": "TRANSIT_PUBLIC",
+    "bus_stop": "TRANSIT_PUBLIC",
+    "bus_interior": "TRANSIT_PUBLIC",
+    "hsr_platform": "TRANSIT_PUBLIC",
+    "ubike_lane": "TRANSIT_PERSONAL",
+    "scooter_alley": "TRANSIT_PERSONAL",
+    "temple_courtyard": "CULTURE_RULES",
+    "taipei_101": "LANDMARK_SPOT",
+    "jiufen_alley": "LANDMARK_SPOT",
+    "kenting_beach": "LANDMARK_SPOT",
+    "sun_moon_lake": "LANDMARK_SPOT",
+    "convenience_tw": "SHOPPING_CHAOS",
+    "ximending": "ENTERTAINMENT",
+    "yangming_trail": "NATURE_OUTDOORS",
+    "park_banyan": "NATURE_OUTDOORS"
+  }
+}
