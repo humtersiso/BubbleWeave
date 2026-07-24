@@ -52,6 +52,7 @@ import {
   validatePlayerPhotoUpload,
 } from './lib/playerPortraitProcess.js';
 import { DEFAULT_BADGE_STYLE } from './lib/rarity.js';
+import { APP_CHANNEL, APP_RELEASE } from './lib/appVersion.js';
 
 const STORY_PACK_VERSION = 23;
 /** 升版強制重建：新權重槽位 + season-taiwan-diverse.json */
@@ -906,6 +907,11 @@ export default function App() {
               </h1>
               <p className="mt-0.5 text-[11px] font-semibold tracking-wide text-ink-500">
                 第 {SEASON.number} 季 · {SEASON.title}
+                {APP_CHANNEL === 'v2-dev' ? (
+                  <span className="ml-2 rounded border border-ink-300 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink-400">
+                    v{APP_RELEASE}
+                  </span>
+                ) : null}
               </p>
             </div>
             <nav className="hidden items-center gap-1 md:flex">
