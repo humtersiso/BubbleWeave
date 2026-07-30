@@ -38,16 +38,18 @@ export const buildPlayerCharacter = (profile = {}) => {
     hairSignature: 'match the player canonical portrait hair exactly',
     outfitSignature: 'match the player canonical portrait outfit silhouette',
     glassesSignature: 'match the player canonical portrait eyewear (or bare face)',
-    portraitFailCheck: 'wrong person, photorealistic photo, colored image, extra people',
+    portraitFailCheck:
+      'wrong person, photorealistic photo, colored image, extra people, darkened Black skin when reference is not',
     identityHardLock:
       `PLAYER "${nameZh}" LOCK (FATAL IF WRONG): This is the USER's avatar. ` +
       'FACE must match the attached player canonical portrait exactly (same person). ' +
+      'SKIN: preserve reference face gray lightness — NEVER darken into Black/African-American skin; NEVER swap with Bob. ' +
       'Keep Ghibli black-and-white ink style. Never photorealistic. Never swap with Cindy/Bob/David/Elise.',
     appearance:
       `ALWAYS the EXACT SAME person "${nameZh}" as the player canonical portrait reference. ` +
-      'Ghibli ink keyframe, black-and-white only. Do not invent a different face.',
+      'Ghibli ink keyframe, black-and-white only. Do not invent a different face. Do not darken skin.',
     faceAppearance:
-      `SAME person "${nameZh}" as player portrait: face, hair, glasses/no-glasses must match reference; looking at camera`,
+      `SAME person "${nameZh}" as player portrait: face, hair, glasses/no-glasses, skin lightness must match reference; looking at camera`,
     color: '#0d9488',
     isPlayer: true,
   };

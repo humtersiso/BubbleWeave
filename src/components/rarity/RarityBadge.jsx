@@ -3,12 +3,14 @@ import { getRarityMeta, DEFAULT_BADGE_STYLE } from '../../lib/rarity.js';
 
 /**
  * 稀有度角標 — 3 套視覺 × 5 級（純 CSS，後製疊加）
+ * @param {string} [label] 覆寫顯示文字（v2 用籤級如「大吉」）
  */
 export default function RarityBadge({
   tier = 'n',
   styleId = DEFAULT_BADGE_STYLE,
   size = 'md',
   className = '',
+  label,
 }) {
   const meta = getRarityMeta(tier);
   const style = ['ink', 'foil', 'seal'].includes(styleId) ? styleId : DEFAULT_BADGE_STYLE;
@@ -27,13 +29,15 @@ export default function RarityBadge({
     ur: 'tier-ur',
   }[meta.id] || 'tier-n';
 
+  const text = label != null ? label : meta.label;
+
   return (
     <span
       className={`rarity-badge rarity-${style} ${tierTone} ${sizeClass} ${className}`}
-      title={`${meta.labelZh}（${meta.label}）`}
-      aria-label={`稀有度 ${meta.labelZh}`}
+      title={label != null ? String(label) : `${meta.labelZh}（${meta.label}）`}
+      aria-label={label != null ? String(label) : `稀有度 ${meta.labelZh}`}
     >
-      <span className="rarity-badge__label">{meta.label}</span>
+      <span className="rarity-badge__label">{text}</span>
     </span>
   );
 }

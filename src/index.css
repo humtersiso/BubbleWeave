@@ -62,11 +62,11 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0;
     border: 2px solid var(--ink);
     border-radius: calc(var(--panel-radius) * 0.7);
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--accent);
+    color: #fff;
   }
 
   .btn-primary:hover:not(:disabled) {
@@ -85,6 +85,16 @@
     box-shadow: 4px 4px 0 0 var(--ink);
   }
 
+  /* Step4 對白選項：強制蓋掉 UA button { white-space: nowrap } */
+  .dialogue-option {
+    white-space: normal !important;
+    overflow: visible !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    height: auto !important;
+    min-height: 2.75rem;
+  }
+
   .btn-accent {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0;
     border: 2px solid var(--ink);
@@ -93,6 +103,18 @@
   }
 
   .btn-accent:hover:not(:disabled) {
+    box-shadow: 4px 4px 0 0 var(--ink);
+  }
+
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0;
+    border: 2px solid var(--ink);
+    border-radius: calc(var(--panel-radius) * 0.7);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn-ink:hover:not(:disabled) {
     box-shadow: 4px 4px 0 0 var(--ink);
   }
 
@@ -240,6 +262,11 @@
   .rarity-ink.tier-ssr { color: #c2410c; }
   .rarity-ink.tier-ur { color: #b45309; background: #fff7ed; }
 
+  /* 籤級兩字（大吉／大凶）略加寬 */
+  .rarity-badge .rarity-badge__label {
+    letter-spacing: 0.06em;
+  }
+
   .rarity-foil {
     border: 2px solid #1c1917;
     clip-path: polygon(0 0, 100% 0, 100% 72%, 82% 100%, 0 100%);
@@ -306,6 +333,135 @@
   }
   .reward-flip-front {
     transform: rotateY(180deg);
+  }
+
+  /* —— v2 抽籤：咒術 ED1 風格動畫 —— */
+  .jjk-flash {
+    animation: jjk-pop-flash 0.3s steps(2) infinite;
+  }
+  @keyframes jjk-pop-flash {
+    0% { background-color: rgba(255, 230, 0, 0.25); }   /* 黃 */
+    50% { background-color: rgba(255, 0, 128, 0.2); }    /* 粉 */
+    100% { background-color: rgba(0, 230, 255, 0.2); }   /* 青 */
+  }
+
+  .jjk-scribble {
+    mask-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,10 Q30,50 10,90 M50,10 Q70,50 50,90 M90,10 Q110,50 90,90' stroke='black' fill='transparent' stroke-width='4'/%3E%3C/svg%3E");
+    mask-size: 64px 64px;
+    animation: jjk-scribble-move 0.6s linear infinite;
+  }
+  @keyframes jjk-scribble-move {
+    from { mask-position: 0 0; }
+    to { mask-position: 64px 64px; }
+  }
+
+  .jjk-bar {
+    height: 12%;
+    background: var(--accent);
+    transform: skewX(-15deg);
+    animation: jjk-bar-slide 1.6s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+  }
+  @keyframes jjk-bar-slide {
+    0% { transform: translate(-120%, 0) skewX(-15deg); }
+    100% { transform: translate(250%, 0) skewX(-15deg); }
+  }
+
+  /* —— v2 抽籤：橘系紙感掃描 —— */
+  .laser-scanner {
+    background:
+      radial-gradient(ellipse at 50% 20%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 55%),
+      linear-gradient(180deg, #fff8f0 0%, var(--paper) 45%, color-mix(in srgb, var(--accent) 12%, var(--paper)) 100%);
+  }
+  .laser-scanner__grid {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--accent) 16%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--accent) 16%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .laser-scanner__beam {
+    height: 3px;
+    top: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--accent) 25%, transparent) 18%,
+      #f0a060 42%,
+      var(--accent) 50%,
+      #e8c49a 62%,
+      transparent 100%
+    );
+    box-shadow:
+      0 0 10px 2px color-mix(in srgb, var(--accent) 70%, transparent),
+      0 0 24px 6px color-mix(in srgb, var(--accent) 35%, transparent);
+    animation: laser-scan-y 2.1s linear infinite;
+  }
+  @keyframes laser-scan-y {
+    0% {
+      top: 4%;
+      opacity: 0.4;
+    }
+    12% {
+      opacity: 1;
+    }
+    88% {
+      opacity: 1;
+    }
+    100% {
+      top: 96%;
+      opacity: 0.4;
+    }
+  }
+
+  /* —— v2 抽籤：橘系日式印章 —— */
+  .fortune-seal {
+    display: inline-flex;
+    transform: rotate(-14deg);
+    filter: drop-shadow(3px 4px 0 rgba(28, 25, 23, 0.22));
+    animation: fortune-seal-pop 0.55s cubic-bezier(0.2, 1.4, 0.3, 1) both;
+  }
+  .fortune-seal__ring {
+    border: 3px dashed var(--accent);
+    padding: 8px;
+    background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35), transparent 55%);
+  }
+  .fortune-seal__inner {
+    min-width: 7.5rem;
+    min-height: 7.5rem;
+    border: 4px solid color-mix(in srgb, var(--accent) 70%, #7a2e10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--accent) 92%, #7a2e10);
+    box-shadow: inset 0 0 0 2px rgba(255, 240, 220, 0.28);
+  }
+  .fortune-seal__text {
+    font-family: var(--font-display);
+    font-size: 2.35rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #fff8f0;
+    writing-mode: horizontal-tb;
+    text-shadow: 1px 1px 0 rgba(60, 20, 0, 0.35);
+  }
+  .fortune-seal--bad .fortune-seal__ring {
+    border-color: var(--ink);
+  }
+  .fortune-seal--bad .fortune-seal__inner {
+    border-color: var(--ink);
+    background: color-mix(in srgb, var(--ink) 90%, var(--accent));
+  }
+  .fortune-seal--bad .fortune-seal__text {
+    color: var(--paper);
+  }
+  @keyframes fortune-seal-pop {
+    0% {
+      transform: rotate(-14deg) scale(1.45);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(-14deg) scale(1);
+      opacity: 1;
+    }
   }
 
   @media print {

@@ -215,7 +215,9 @@ export const createCardFromSeasonEntry = async (card, portraits = {}, opts = {})
   const slotWeight = UNIVERSAL_SLOTS_BY_ID[slotId]?.weight ?? 10;
 
   const imagePrompt = opts.forcePlayer
-    ? buildPlayerAwareScenePrompt(card, characterIds, playerProfile)
+    ? buildPlayerAwareScenePrompt(card, characterIds, playerProfile, {
+        fortuneHint: opts.fortuneHint || null,
+      })
     : card.image_prompt;
 
   const imageUrl = await generateStorySceneCard(imagePrompt, {
@@ -226,6 +228,7 @@ export const createCardFromSeasonEntry = async (card, portraits = {}, opts = {})
     extraCharacters: characterIds.includes(PLAYER_ID)
       ? [buildPlayerCharacter(playerProfile || {})]
       : [],
+    styleLock: opts.styleLock,
   });
 
   const spatialFromPrompt = parseSpatialOrderFromPrompt(imagePrompt);
@@ -273,7 +276,7 @@ export const createCardFromSeasonEntry = async (card, portraits = {}, opts = {})
 };
 
 /** 強制含「我」時改寫場景 prompt，避免舊四角描述搶臉 */
-const buildPlayerAwareScenePrompt = (entry, characterIds, playerProfile) => {
+const buildPlayerAwareScenePrompt = (entry, characterIds, playerProfile, opts = {}) => {
   const me = buildPlayerCharacter(playerProfile || {});
   const others = characterIds
     .filter((id) => id !== PLAYER_ID)
@@ -296,16 +299,29 @@ const buildPlayerAwareScenePrompt = (entry, characterIds, playerProfile) => {
     return `On the ${side}: ${ch.name} — ${ch.identityHardLock || ch.appearance || ''}`;
   });
 
+  const hint = opts.fortuneHint;
+  const flavorLines = hint
+    ? [
+        `SECONDARY mood seasoning ONLY (~10–20% influence): facial expression / body language may lightly lean toward "${hint.mood || 'subtle'}".`,
+        hint.categoryLabel
+          ? `Subtle category vibe (${hint.categoryLabel}): may tint interaction chemistry slightly (e.g. career=mild stress/rush; love=faint awkward crush glance IF another person is present; social=awkward people energy). Do NOT change the Taiwan landmark/scene or core action.`
+          : '',
+        'PRIMARY = the Taiwan scene + action above. Fortune must NOT replace the setting.',
+      ].filter(Boolean)
+    : [];
+
   return [
-    `Taiwan everyday scene: ${entry.scene_zh || 'street'}.`,
-    `Action: ${entry.action_zh || 'awkward moment'}.`,
-    `Emotion: ${entry.emotion_zh || 'embarrassed'}.`,
+    `Taiwan everyday scene (PRIMARY): ${entry.scene_zh || 'street'}.`,
+    `Action (PRIMARY): ${entry.action_zh || 'awkward moment'}.`,
+    `Emotion baseline: ${entry.emotion_zh || 'embarrassed'}.`,
     'Cast (left to right):',
     ...castLines,
     others.length
-      ? 'Keep each named character identity locked; do not blend faces.'
-      : `${me.nameZh} alone in frame.`,
-    'Classic Studio Ghibli keyframe black-and-white ink line art, Miyazaki-inspired, clean dark outlines, high contrast, crisp white background, NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot.',
+      ? 'Show readable interaction between characters (glance, distance, gesture) that fits the action — keep each identity locked; do not blend faces.'
+      : `${me.nameZh} alone in frame, reacting to the scene/action.`,
+    ...flavorLines,
+    'Classic Studio Ghibli keyframe ink line art, Miyazaki-inspired, clean dark outlines, high contrast, paper/white background.',
+    'NO text, NO speech bubbles, NO panel borders, vertical 3:4 full-body or three-quarter shot.',
   ].join('\n');
 };
 
@@ -386,7 +402,7 @@ export const claimDailyCards = async (
   return cards;
 };
 
-/** 每日組隊：一定含 me；其餘從四角抽 */
+/** 每日／籤詩組隊：一定含 me；其餘從四角抽（solo35 / +1 40 / +2 20 / +3 5） */
 const PARTY_ROLL = [
   { extra: 0, weight: 35 },
   { extra: 1, weight: 40 },
@@ -394,7 +410,7 @@ const PARTY_ROLL = [
   { extra: 3, weight: 5 },
 ];
 
-const rollPartyIncludingPlayer = () => {
+export const rollPartyIncludingPlayer = () => {
   const total = PARTY_ROLL.reduce((s, x) => s + x.weight, 0);
   let r = Math.random() * total;
   let extra = 0;

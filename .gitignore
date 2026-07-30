@@ -21,3 +21,6 @@ models/*.pt
 models/*.onnx
 public/models/*.onnx
 public/models/*.pt
+
+# GCP function deps
+gcp/**/node_modules/
