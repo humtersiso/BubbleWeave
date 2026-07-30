@@ -5,4 +5,4 @@
  */
 export const APP_RELEASE = '2.0.0-dev';
 export const APP_CHANNEL = 'v2-dev';
-export const APP_RELEASE_LABEL = `BubbleWeave ${APP_RELEASE} (${APP_CHANNEL})`;
+export const APP_RELEASE_LABEL = `籤語 ${APP_RELEASE} (${APP_CHANNEL})`;

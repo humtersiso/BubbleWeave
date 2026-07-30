@@ -1,6 +1,7 @@
-# 織泡劇場 · BubbleWeave
+# 籤語 · KujiWords
 
-圖文故事創意社群平台：以**吉卜力黑白動畫原畫**卡牌排列故事，支援手動／AI 對白，並透過 Remix 傳播。
+**v2（預設）**：個人 2D 化身 × 台灣籤詩運勢分享（直式手機主流程）。  
+**v1（凍結）**：吉卜力墨線劇場排卡＋社群 Remix（見 tag `v1.0-stable`，產品名 BubbleWeave）。
 
 ## 版本（重要）
 
@@ -25,11 +26,17 @@ git checkout feat/v2-rewrite && npm install && npm run dev
 |------|------|
 | [`docs/VERSIONING.md`](docs/VERSIONING.md) | Git／DB／發佈約定 |
 | [`docs/PRD_v1.md`](docs/PRD_v1.md) | v1 凍結 PRD |
-| [`docs/PRD_v2.md`](docs/PRD_v2.md) | v2 大改 PRD（草稿） |
+| [`docs/PRD_v2.md`](docs/PRD_v2.md) | v2 籤詩運勢 PRD（定案） |
 | [`docs/CHARACTER_COMBOS.md`](docs/CHARACTER_COMBOS.md) | 生圖組合 |
 | [`docs/CHARACTER_BIBLE.md`](docs/CHARACTER_BIBLE.md) | 四角人物規格 |
 
-## 版面（v1／現行體驗）
+## 版面（v2 · 目前預設）
+
+- **主線**：直式五步籤詩（上傳 → 2D／測驗 → 抽籤 → 對白 → 分享）
+- **懸浮**：圖庫／個人／歷史
+- **雲端**：GCP Firestore／Cloud Functions 分享互兌（見 `gcp/`）
+
+## 版面（v1 · tag `v1.0-stable`）
 
 - **上**：個人卡＋織泡劇場＋社群（熱門／最新）  
 - **下**：靈感池全寬  
@@ -39,7 +46,8 @@ git checkout feat/v2-rewrite && npm install && npm run dev
 
 ```bash
 cp .env.example .env
-# 編輯 .env，填入 VITE_GEMINI_API_KEY
+# 編輯 .env：VITE_GEMINI_API_KEY（必要）
+# 可選：VITE_SHARE_API_URL（GCP 分享 API；未設則用本機 local 分享碼）
 npm install
 # 下載 YOLOv8 動漫臉模型（Fuyucch1/yolov8_animeface，約 186MB）
 python scripts/export-animeface-onnx.py
@@ -69,9 +77,9 @@ Repo：<https://github.com/humtersiso/BubbleWeave>
 
 ## 驗收對照
 
-詳見對應版 PRD。精簡版：
+詳見對應版 PRD。v2 精簡版：
 
-- `create-season` 一鍵產季 prompt；倉庫可依總編輯 JSON 生圖  
-- 劇場：排序、手動／AI 對白、發布；前端疊加對白  
-- Like／Remix；可匯出 JPEG／HTML  
+- 直式主流程五步可跑通；懸浮圖庫／個人／歷史
+- 臉防呆；2D＋個性標籤；籤等六檔；對白可選／自填；3:4＋9:16 匯出
+- GCP 互兌防刷：每連結最多 5 次（或本機 local 碼 fallback）
 - `npm run build`／`npm run dev` 可跑  

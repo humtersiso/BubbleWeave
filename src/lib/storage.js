@@ -38,6 +38,16 @@ export const defaultState = () => ({
   cardSchemaVersion: 0,
   storyPackVersion: 0,
   playerProfile: null,
+  /** v2 籤詩 */
+  playerId: null,
+  fortuneCards: [],
+  friendCopies: [],
+  flowStep: 1,
+  pendingShareCode: null,
+  draftCard: null,
+  categoryId: null,
+  quizAnswers: {},
+  colorStyle: 'jjk', // ColorStyleId — see v2/lib/colorStyles.js
 });
 
 export const loadState = async () => {
@@ -55,6 +65,8 @@ export const loadState = async () => {
       ...value,
       cards: Array.isArray(value.cards) ? value.cards : [],
       stories: Array.isArray(value.stories) ? value.stories : [],
+      fortuneCards: Array.isArray(value.fortuneCards) ? value.fortuneCards : [],
+      friendCopies: Array.isArray(value.friendCopies) ? value.friendCopies : [],
     };
   } catch (err) {
     console.error('loadState failed', err);

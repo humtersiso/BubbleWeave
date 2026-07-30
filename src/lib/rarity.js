@@ -40,7 +40,7 @@ export const BADGE_STYLES = [
   },
 ];
 
-export const DEFAULT_BADGE_STYLE = 'ink';
+export const DEFAULT_BADGE_STYLE = 'foil';
 
 const TIER_BY_ID = Object.fromEntries(RARITY_TIERS.map((t) => [t.id, t]));
 
